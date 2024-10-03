@@ -108,7 +108,7 @@ var
   sDir: string;
 begin
   SelectDirectory('Escolha a Pasta ', '', sDir);
-  (Sender as TEditButton).Text := LowerCase(sDir);   /// ACBr <> acbr !!!!
+  (Sender as TEditButton).Text := sDir;   /// ACBr <> acbr !!!!
 end;
 
 procedure TFormMain.FormShow(Sender: TObject);
@@ -136,7 +136,7 @@ begin
   strListACBr := FindAllFiles(edtPathACBr.Text, '*.lpk', True);
   try
     for i := 0 to strListACBr.Count - 1 do
-      outputScreen.Lines.Add(LowerCase(strListACBr.Strings[i]));
+      outputScreen.Lines.Add(strListACBr.Strings[i]);
   finally
     buttonValidatePathACBr.ImageIndex := ifthen(i > 50, 4, 3);
   end;
@@ -286,7 +286,7 @@ begin
   sl := FindAllFiles(edtPathLazarus.Text, 'lazbuild.*', True);
   try
     for i := 0 to sl.Count - 1 do
-      outputScreen.Lines.Add(LowerCase(sl.Strings[i]));
+      outputScreen.Lines.Add(sl.Strings[i]);
   finally
     buttonValidatePathLazarus.ImageIndex := ifthen(i >= 3, 4, 3);
     sl.Free;
